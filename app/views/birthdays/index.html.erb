@@ -1,0 +1,56 @@
+ <% provide(:home, "active") %>
+ <% provide(:title, "Home") %>
+ <style>
+ .container {height: 100%;}
+ </style>
+ <body class="bdayindex">
+      <div class="jumbotron">
+        <h1>Today's Birthday(s)</h1>
+        <ul class="lead">
+          <% @birthdays.each do |birthday| %>
+            <% if birthday.birthday.strftime("%m-%d") == Time.now.strftime("%m-%d") %>
+            <li><%= birthday.name + " "+ birthday.surname %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+
+     <div class="row marketing">
+     	<div class="container">
+      	<table class="table table-bordered table-striped">
+      		<thead>
+      			<tr>
+              <th>No</th>
+      				<th>Firstname</th>
+      				<th>Lastname</th>
+      				<th>Birthdate</th>
+              <th>Edit</th>
+              <th>Delete</th>
+      			</tr>
+      			
+      		</thead>
+      		<tbody>
+      			<% @birthdays.each do |birthday| %>
+      			<tr>
+                <td></td>
+
+      					<td><%= birthday.name %></td>
+      					<td><%= birthday.surname %></td>
+      					<td><%= birthday.birthday %></td>
+                <td><p data-placement="top" data-toggle="tooltip" title="Edit"><%= link_to ' ', edit_birthday_path(birthday), :class => "btn btn-primary btn-xs glyphicon glyphicon-pencil" %></p></td>
+                <td><p data-placement="top" data-toggle="tooltip" title="Delete"><%= link_to ' ', birthday_path(birthday), {method: :delete, :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger btn-xs glyphicon glyphicon-trash"} %></p></td>
+      			</tr>
+      			<% end %>
+      		</tbody>
+      	</table>
+      	</div>
+	</div>
+      <footer class="footer">
+        <p>&copy; Aslı Öztürk 2015</p>
+      </footer>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+

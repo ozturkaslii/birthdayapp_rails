@@ -1,0 +1,31 @@
+<div class="row-fluid">
+	<div class="span4 well">
+		<%= form_for @birthday, :html => {:class => "form-horizontal"} do |f| %>
+			<fieldset>
+				<legend>Birthday Panel</legend>
+					<div class="control-group">
+						<%= f.label :name, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :name, placeholder: "Enter the firstname", :class => "input-xlarge" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :surname, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :surname, placeholder: "Enter the lastname", :class => "input-xlarge" %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.label :birthday, :class => "control-label" %>
+						<div class="controls">
+							<%= f.text_field :birthday, as: :datepicker, placeholder: "yyyy-mm-dd", id:"datepicker" %>
+						</div>
+					</div>
+					<br>
+					<div class="form-actions">
+						<%= f.submit :class => "btn btn-info" %>
+					</div>
+			</fieldset>
+		<% end %>
+	</div>
+</div>

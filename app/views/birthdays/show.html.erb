@@ -1,0 +1,16 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="span4 well">
+			<div class="control-group">
+				<span class="txt1"><%= @birthday.name+" "+@birthday.surname %></span>
+			</div>
+			<div class="control-group">
+				<span class="txt2"><%= @birthday.birthday %></span>
+			</div>
+			<div class="form-actions">
+				<%= button_to "Edit", edit_birthday_path(@birthday), method: :get, :class => "btn btn-info col-md-1" %><%= button_to "Delete", birthday_path(@birthday), method: :delete, :onclick => "return confirm('Are you sure?')", :class => "btn btn-danger col-md-1" %>
+			</div>
+		</div>
+	</div>
+</div>
+
