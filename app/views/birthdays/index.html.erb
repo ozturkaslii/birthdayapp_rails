@@ -8,7 +8,7 @@
         <h1>Today's Birthday(s)</h1>
         <ul class="lead">
           <% @birthdays.each do |birthday| %>
-            <% if birthday.birthday.strftime("%m-%d") == Time.now.strftime("%m-%d") %>
+            <% if birthday.birthday.try(:strftime, "%m-%d") == Time.now.strftime("%m-%d") %>
             <li><%= birthday.name + " "+ birthday.surname %></li>
             <% end %>
           <% end %>

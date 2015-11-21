@@ -9,7 +9,6 @@ class BirthdaysController < ApplicationController
   end
 
   def create
-    if (!birthday_params.has_key?(:name) && !birthday_params.has_key?(:surname) && !birthday_params.has_key?(:birthday) && !" ")
   	 @birthday = Birthday.new(birthday_params)
 
   	 if @birthday.save
@@ -17,9 +16,6 @@ class BirthdaysController < ApplicationController
   	 else
   		  render 'new'
   	 end
-     else
-       render 'show'
-    end
   end
 
   def show
