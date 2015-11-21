@@ -9,13 +9,17 @@ class BirthdaysController < ApplicationController
   end
 
   def create
-  	@birthday = Birthday.new(birthday_params)
+    if (!birthday_params.has_key?(:name) && !birthday_params.has_key?(:surname) && !birthday_params.has_key?(:birthday) && !" ")
+  	 @birthday = Birthday.new(birthday_params)
 
-  	if @birthday.save
-  		redirect_to root_path
-  	else
-  		render 'new'
-  	end
+  	 if @birthday.save
+  		  redirect_to root_path
+  	 else
+  		  render 'new'
+  	 end
+     else
+       render 'show'
+    end
   end
 
   def show
